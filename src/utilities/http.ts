@@ -1,6 +1,6 @@
 import Axios, { AxiosRequestConfig } from 'axios';
 
-export const baseUrl = '/api/v1';
+export const baseUrl = 'https://api.themoviedb.org/3';
 
 export const get = <T>(
   url: string,
@@ -8,7 +8,11 @@ export const get = <T>(
   config?: AxiosRequestConfig
 ) =>
   Axios.get<T>(`${baseUrl}${url}`, {
-    params: queryParams,
+    params: {
+      api_key: 'a72a9b065bc5b83a805c43ab87dac73d',
+      language: 'en-US',
+      ...queryParams
+    },
     headers: { 'Access-Control-Allow-Origin': '*' },
     ...config
   });
