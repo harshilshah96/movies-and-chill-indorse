@@ -22,6 +22,14 @@ interface IASyncProps extends IAsyncStoreProps {
   initialState?: IAsyncState;
 }
 
+/** This component is used to handle Async tasks, it takes in the following props:
+ * promise: The API call promise which will fetch the data.
+ * identifier: identifier of Redux.
+ * content: The content to be displayed when the promise is resolved.
+ * error: The error message to be shown if the promise fails.
+ * loader: The loader to be shown while the promise is executing.
+ */
+
 export const Async = ({
   loader,
   content,

@@ -1,6 +1,11 @@
 import * as React from 'react';
 import { NavBar } from '../Nav';
 
+/**
+ * Since we're using Route level code splitting, it makes sense to make a Base page that will be surrounding 
+ * all the pages that a Route renders for a quicker way to add more pages
+ */
+
 export const BasePage = ({
   className,
   style,

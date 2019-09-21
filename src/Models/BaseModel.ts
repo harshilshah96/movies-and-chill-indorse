@@ -1,6 +1,9 @@
 import { removeInstance, saveInstance, updateInstance } from '../actions/modelActions';
 import { store } from '../store';
-
+ /**
+  * This will help us manage CRUD operations in Redux with respect to different resources 
+  * on the app, for eg: Movies, Cast, etc.
+  */
 export class BaseModel<T> {
 
     static resource: string;
