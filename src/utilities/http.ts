@@ -13,7 +13,6 @@ export const get = <T>(
       language: 'en-US',
       ...queryParams
     },
-    headers: { 'Access-Control-Allow-Origin': '*' },
     ...config
   });
 

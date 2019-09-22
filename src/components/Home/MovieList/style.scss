@@ -1,0 +1,57 @@
+@import '../../../themes/common.scss';
+
+.list-title-container {
+    padding-right: 12px;
+    .list-title {
+        margin-top: 60px;
+        background-color: white;
+        padding-left: 21px;
+        padding-right: 12px;
+        justify-content: center;
+        box-shadow: #4a4a4a 0px 2px 4px;
+        border-radius: 12px;
+        height: 44px;
+    }
+}
+
+.movie-list-container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 15px;
+    overflow: auto;
+    height: 425px;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+
+    .movie-card-container {
+        display: flex;
+
+        .movie-card {
+            margin-left: 22px;
+            box-shadow: #4a4a4a 0px 2px 4px;
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            border-radius: 35px;
+            background-color: white;
+            overflow: hidden;
+
+            .movie-card-image {
+                height: 300px;
+            }
+
+            .movie-details-container {
+                padding-left: 18px;
+                padding-bottom: 12px;
+                font-size: large;
+                margin-top: 12px;
+
+                .movie-details {
+                    margin-top: 12px;
+                    font-family: 'Lato', sans-serif;
+                }
+            }
+        }
+    }
+}

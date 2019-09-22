@@ -1,6 +1,6 @@
 import { BaseModel } from './BaseModel';
 
-export type IMovieListType = 'popular' | 'topRated' | 'nowPlaying';
+export type IMovieListType = 'popular' | 'top_rated' | 'now_playing';
 
 export interface IMovieModelAPI {
   id?: string;
@@ -13,7 +13,7 @@ export interface IMovieModelAPI {
   vote_average?: number;
 }
 export interface IMovieModelProps extends IMovieModelAPI {
-  type: IMovieListType;
+  type?: Array<IMovieListType>;
 }
 
 export class MovieListModel extends BaseModel<IMovieModelProps> {

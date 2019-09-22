@@ -62,7 +62,7 @@
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-toastify": "^5.3.2",
-    "react-waypoint": "^8.0.3",
+    "react-waypoint": "^9.0.2",
     "redux": "^4.0.4",
     "redux-devtools": "^3.5.0",
     "redux-promise-middleware": "^5.1.1",

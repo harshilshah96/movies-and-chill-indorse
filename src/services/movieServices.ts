@@ -16,7 +16,7 @@ export interface IListPageResponse {
 
 export const getMovieLists = async (
   listType: IMovieListType,
-  page: string,
+  page: number,
   search?: string
 ) => {
   const { data } = await get<IListPageResponse>(
@@ -24,21 +24,29 @@ export const getMovieLists = async (
     { page, ...(search ? { query: search } : {}) }
   );
   let movieListData: Array<MovieListModel> = [];
-  data.results.map(movie =>
-    movieListData.push(
-      new MovieListModel({
-        adult: movie.adult,
-        id: movie.id.toString(),
-        overview: movie.overview,
-        vote_average: movie.vote_average,
-        type: listType,
-        popularity: movie.popularity,
-        poster_path: movie.poster_path,
-        release_date: movie.release_date,
-        title: movie.title
-      })
-    )
-  );
+  data.results.map(movie => {
+    {
+      const movieListModel: MovieListModel = MovieListModel.get(
+        movie.id.toString()
+      );
+      movieListData.push(
+        new MovieListModel({
+          adult: movie.adult,
+          id: movie.id.toString(),
+          overview: movie.overview,
+          vote_average: movie.vote_average,
+          type: [
+            listType,
+            ...(movieListModel ? movieListModel.props.type : [])
+          ],
+          popularity: movie.popularity,
+          poster_path: movie.poster_path,
+          release_date: movie.release_date,
+          title: movie.title
+        })
+      );
+    }
+  });
   MovieListModel.saveAll(movieListData);
   savePageDetails(data.page, data.total_pages);
   return movieListData;
