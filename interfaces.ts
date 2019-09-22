@@ -3,6 +3,7 @@ import { BaseModel } from './src/Models/BaseModel';
 import { IAsyncState } from './src/components/ReusableComponents/Async';
 
 export interface IState {
-    models: Immutable.Map<string, BaseModel<{}>>;
-    loading: Immutable.Map<string, IAsyncState>;
+  models: Immutable.Map<string, BaseModel<{}>>;
+  loading: Immutable.Map<string, IAsyncState>;
+  page: { currentPage: number; totalPages: number };
 }

@@ -5,6 +5,7 @@ import {
 } from '../Models/MovieListModel';
 import { get } from '../utilities/http';
 import { IMovieDetailModelAPI, MovieModel } from '../Models/MovieModel';
+import { savePageDetails } from '../actions/pageActions';
 
 export interface IListPageResponse {
   page: number;
@@ -13,8 +14,15 @@ export interface IListPageResponse {
   total_pages: number;
 }
 
-export const getMovieLists = async (listType: IMovieListType, page: string) => {
-  const { data } = await get<IListPageResponse>(`/movie/${listType}`, { page });
+export const getMovieLists = async (
+  listType: IMovieListType,
+  page: string,
+  search?: string
+) => {
+  const { data } = await get<IListPageResponse>(
+    search ? `/search/movie` : `/movie/${listType}`,
+    { page, ...(search ? { query: search } : {}) }
+  );
   let movieListData: Array<MovieListModel> = [];
   data.results.map(movie =>
     movieListData.push(
@@ -32,6 +40,7 @@ export const getMovieLists = async (listType: IMovieListType, page: string) => {
     )
   );
   MovieListModel.saveAll(movieListData);
+  savePageDetails(data.page, data.total_pages);
   return movieListData;
 };
 
