@@ -55,7 +55,7 @@ export const getMovieLists = async (
     }
   });
   MovieListModel.saveAll(movieListData);
-  savePageDetails(data.page, data.total_pages);
+  savePageDetails(search ? 'search' : listType, data.page, data.total_pages);
   return movieListData;
 };
 

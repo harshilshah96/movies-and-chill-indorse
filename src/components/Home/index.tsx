@@ -16,7 +16,7 @@ const Home = (props: RouteComponentProps) => {
   const [showOtherLists, setShowOtherLists] = React.useState(true);
 
   const resetDetails = () => {
-    savePageDetails(0, 0);
+    savePageDetails('', 0, 0);
     MovieListModel.deleteAll();
   };
 

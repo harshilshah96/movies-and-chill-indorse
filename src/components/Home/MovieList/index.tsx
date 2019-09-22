@@ -59,9 +59,12 @@ export const MovieList = (props: IMovieComponentListProps) => {
     reloadList();
   }, [type, search]);
 
-  const { currentPage, totalPages } = useSelector(
-    (state: IState) => state.page
-  );
+  const { currentPage, totalPages } = useSelector((state: IState) => {
+    if (!search && !type) {
+      return { currentPage: 0, totalPages: 0 };
+    }
+    return search ? state.page.search : state.page[type];
+  });
 
   const endCheck = () =>
     !currentPage || !totalPages || currentPage === totalPages;
