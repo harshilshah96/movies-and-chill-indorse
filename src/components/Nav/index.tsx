@@ -1,28 +1,11 @@
 import * as React from 'react';
+import './nav.scss';
 import { Link } from 'react-router-dom';
 
 export const NavBar = () => (
-  <div
-    style={{
-      display: 'flex',
-      height: '40px',
-      fontSize: '14px',
-      alignItems: 'center'
-    }}>
-    <Link
-      to="/"
-      style={{ cursor: 'pointer', width: '50px', border: 'solid 2px' }}>
-      Home
-    </Link>
-    <Link
-      to="/aboutus"
-      style={{
-        cursor: 'pointer',
-        width: '50px',
-        border: 'solid 2px',
-        marginLeft: '21px'
-      }}>
-      About Us
+  <div className="nav-bar-container">
+    <Link to="/">
+      <div className="logo-container">Movies & Chill</div>
     </Link>
   </div>
 );

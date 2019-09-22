@@ -1,0 +1,5 @@
+@import './mediaqueries.scss';
+
+@mixin boxShadow($xVal, $yVal, $blurVal) {
+    box-shadow: #4a4a4a $xVal $yVal $blurVal;
+}

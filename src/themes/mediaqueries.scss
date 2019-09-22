@@ -1,0 +1,27 @@
+$tablet-width: 768px;
+$desktop-width: 1025px;
+$mobile-width: 500px;
+ 
+/*
+    A small wrapper for making it easy to use media queries:
+    Simply call @include desktop { //desktop-specific styles here }
+                @include tablet { //tablet-specific styles here }
+                @include mobile { //mobile-specific styles here }
+*/
+@mixin tablet {
+    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: #{$mobile-width}) {
+        @content;
+    }
+}

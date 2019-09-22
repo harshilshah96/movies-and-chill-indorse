@@ -1,0 +1,10 @@
+@import '../../themes/common.scss';
+
+.layout-children {
+    padding-left: 2vh;
+    min-height: 100vh;
+
+    @include desktop {
+        padding-left: 3vh;
+    }
+}
