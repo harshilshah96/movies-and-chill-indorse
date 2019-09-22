@@ -19,6 +19,9 @@ export const getMovieLists = async (
   page: number,
   search?: string
 ) => {
+  if (!search && !listType) {
+    return;
+  }
   const { data } = await get<IListPageResponse>(
     search ? `/search/movie` : `/movie/${listType}`,
     { page, ...(search ? { query: search } : {}) }
@@ -37,7 +40,11 @@ export const getMovieLists = async (
           vote_average: movie.vote_average,
           type: [
             listType,
-            ...(movieListModel ? movieListModel.props.type : [])
+            ...(movieListModel
+              ? listType
+                ? movieListModel.props.type
+                : 'search'
+              : [])
           ],
           popularity: movie.popularity,
           poster_path: movie.poster_path,

@@ -13,7 +13,7 @@ export interface IMovieModelAPI {
   vote_average?: number;
 }
 export interface IMovieModelProps extends IMovieModelAPI {
-  type?: Array<IMovieListType>;
+  type?: Array<string>;
 }
 
 export class MovieListModel extends BaseModel<IMovieModelProps> {
