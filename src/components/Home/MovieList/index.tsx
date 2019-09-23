@@ -13,6 +13,8 @@ import { Async } from '../../ReusableComponents/Async';
 import { Loader } from '../../ReusableComponents/Loader';
 import './style.scss';
 import { setLoading, setSuccess } from '../../../actions/loadingActions';
+import { Header } from '../../ReusableComponents/Header';
+import { Link } from 'react-router-dom';
 
 export interface IMovieComponentListProps {
   type?: IMovieListType;
@@ -90,37 +92,39 @@ export const MovieList = (props: IMovieComponentListProps) => {
 
   const renderCards = () => {
     return movies.map((movie, index) => (
-      <div
-        className="movie-card"
-        style={{ marginLeft: index === 0 ? '3px' : '22px' }}>
+      <Link to={`/movie/${movie.props.id}`}>
         <div
-          className="movie-card-image"
-          style={{
-            backgroundImage: `url("https://image.tmdb.org/t/p/w300${movie.props.poster_path}")`
-          }}
-        />
-        <div className="movie-details-container">
-          <div className="movie-title">{movie.props.title}</div>
-          <div className="movie-details">
-            <b>Rated: </b>
-            <span>{Math.round(movie.props.vote_average * 10)}%</span>
+          className="movie-card"
+          style={{ marginLeft: index === 0 ? '3px' : '22px' }}>
+          <div
+            className="movie-card-image"
+            style={{
+              backgroundImage: `url("https://image.tmdb.org/t/p/w300${movie.props.poster_path}")`
+            }}
+          />
+          <div className="movie-details-container">
+            <div className="movie-title">{movie.props.title}</div>
+            <div className="movie-details">
+              <b>Rated: </b>
+              <span>{Math.round(movie.props.vote_average * 10)}%</span>
+            </div>
           </div>
         </div>
-      </div>
+      </Link>
     ));
   };
 
   return (
     <>
-      <div className="list-title-container">
-        <h2 className="list-title">
-          {search
+      <Header
+        title={
+          search
             ? 'Search Results: '
             : movieTypeData[type]
             ? movieTypeData[type].title
-            : ''}
-        </h2>
-      </div>
+            : ''
+        }
+      />
       <div className={`${props.type}-movie-list movie-list-container`}>
         <div className="movie-card-container">
           <Async

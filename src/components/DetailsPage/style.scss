@@ -1,0 +1,95 @@
+@import '../../themes/common.scss';
+
+.movie-details-page {
+  .layout-children {
+    padding: 0 3vh;
+
+    .loader-container {
+      margin-top: 20%;
+      margin-left: 24%;
+
+      @include tablet {
+        margin-left: 30%;
+      }
+
+      @include desktop {
+        margin-left: 50%;
+      }
+    }
+
+    .movie-details-container {
+      display: flex;
+      flex-direction: column;
+
+      .header-title-container {
+        padding: 0px;
+      }
+
+      .movie-grid-container {
+        margin-top: 22px;
+        width: 100%;
+
+        img {
+          width: 100%;
+          border-radius: 22px;
+          @include boxShadow(0px, 2px, 4px);
+        }
+
+        .movie-text-details {
+          border-radius: 22px;
+          @include boxShadow(0px, 2px, 4px);
+          background-color: white;
+          width: 100%;
+          min-height: 500px;
+          font-size: 30px;
+
+          @include mobile {
+            font-size: 20px;
+          }
+
+          @include tablet {
+            font-size: 17px;
+          }
+
+          .row {
+            margin-top: 12px;
+          }
+
+          @include tablet {
+            height: 300px;
+          }
+
+          @include mobile {
+            margin-top: 22px;
+          }
+        }
+      }
+
+      .header-title-container {
+        width: 100%;
+      }
+
+      .cast-container {
+        margin-top: 22px;
+
+        .cast-card-col {
+          min-height: 200px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border-radius: 22px;
+          @include boxShadow(0px, 2px, 4px);
+          background-color: white;
+          padding: 12px;
+          margin: 0px 10vh 10vh 0px;
+          font-size: 25px;
+          text-align: center;
+
+          .poster-path-container {
+            width: 125px;
+          }
+        }
+      }
+    }
+  }
+}

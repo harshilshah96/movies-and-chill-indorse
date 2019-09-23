@@ -2,15 +2,16 @@
 
 .list-title-container {
     padding-right: 12px;
+
     .list-title {
         margin-top: 60px;
         background-color: white;
         padding-left: 21px;
         padding-right: 12px;
-        justify-content: center;
+        padding-top: 7px;
         box-shadow: #4a4a4a 0px 2px 4px;
         border-radius: 12px;
-        height: 44px;
+        height: 54px;
     }
 }
 
@@ -36,6 +37,7 @@
             border-radius: 35px;
             background-color: white;
             overflow: hidden;
+            cursor: pointer;
 
             .movie-card-image {
                 height: 300px;
