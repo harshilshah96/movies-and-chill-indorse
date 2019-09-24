@@ -1,17 +1,20 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import {
+  faSearch,
+  faExclamationTriangle
+} from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as React from 'react';
 import { Suspense } from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch, HashRouter } from 'react-router-dom';
+import { Route, Switch, HashRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ErrorBoundary } from './components/ReusableComponents/ErrorBoundary';
 import { store } from './store';
 
-library.add(faSearch);
+library.add(faSearch, faExclamationTriangle);
 
 ReactDOM.render(
   <Provider store={store}>
@@ -27,7 +30,12 @@ ReactDOM.render(
             <Route
               exact
               path="/movie/:id"
-              component={React.lazy(() => import('./components/MovieDetails'))}
+              component={React.lazy(() => import('./components/DetailsPage'))}
+            />
+            <Route
+              exact
+              path="/person/:id"
+              component={React.lazy(() => import('./components/DetailsPage'))}
             />
           </Switch>
         </Suspense>

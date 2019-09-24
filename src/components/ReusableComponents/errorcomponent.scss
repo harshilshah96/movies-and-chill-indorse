@@ -1,0 +1,9 @@
+@import '../../themes/common.scss';
+
+.error-component-container {
+    display: flex;
+    font-size: 32px;
+    color: red;
+    position: absolute;
+    top: 35%;
+}

@@ -15,6 +15,7 @@ import './style.scss';
 import { setLoading, setSuccess } from '../../../actions/loadingActions';
 import { Header } from '../../ReusableComponents/Header';
 import { Link } from 'react-router-dom';
+import { ErrorComponent } from '../../ReusableComponents/ErrorComponent';
 
 export interface IMovieComponentListProps {
   type?: IMovieListType;
@@ -130,7 +131,7 @@ export const MovieList = (props: IMovieComponentListProps) => {
           <Async
             promise={promise}
             identifier={identifier}
-            error={<h3>Error</h3>}
+            error={<ErrorComponent />}
             loader={<Loader />}
             content={renderCards()}
           />
